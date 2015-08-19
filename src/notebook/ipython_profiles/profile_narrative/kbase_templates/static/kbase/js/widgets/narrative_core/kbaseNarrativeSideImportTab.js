@@ -605,6 +605,21 @@ define(['jquery', 'kbwidget', 'kbaseAuthenticatedWidget', 'select2'], function( 
             	} else {
             		self.showError(methodId + " import mode for PhenotypeSet type is not supported yet");
             	}
+            } else if (self.selectedType === 'KBaseEnigmaMetals.GrowthMatrix') {
+                if (methodId === 'import_growth_tsv_file') {
+                    var options = {
+                            'format_type': 'Simple',
+                            'fill_missing_values': self.asInt(params['fillMissingValues'])
+                    };
+                    args = {'external_type': 'TSV.Growth', 
+                            'kbase_type': 'KBaseEnigmaMetals.GrowthMatrix', 
+                            'workspace_name': self.wsName, 
+                            'object_name': params['outputObject'],
+                            'optional_arguments': {'validate':{},'transform':options},
+                            'url_mapping': {'TSV.Growth': self.shockURL + '/node/' + params['growthFile']}};
+                } else {
+                    self.showError(methodId + " import mode for GrowthMatrix type is not supported yet");
+                }           
             } else {
             	self.showError("Import for [" + self.selectedType + "] type is not supported yet.");
             }
