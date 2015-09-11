@@ -608,8 +608,7 @@ define(['jquery', 'kbwidget', 'kbaseAuthenticatedWidget', 'select2'], function( 
             } else if (self.selectedType === 'KBaseEnigmaMetals.GrowthMatrix') {
                 if (methodId === 'import_growth_tsv_file') {
                     var options = {
-                            'format_type': 'Simple',
-                            'fill_missing_values': self.asInt(params['fillMissingValues'])
+                            'format_type': 'Simple'
                     };
                     args = {'external_type': 'TSV.Growth', 
                             'kbase_type': 'KBaseEnigmaMetals.GrowthMatrix', 
